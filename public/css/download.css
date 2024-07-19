@@ -1,0 +1,30 @@
+/* download.css*/
+.content {
+  margin: 100px auto;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  text-align: center;
+  width: 90%;
+  max-width: 800px;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+.download-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #8B0000;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  transition: background-color 0.3s ease; 
+}
+
+.download-link:hover {
+  background-color: #5a0000; 
+}

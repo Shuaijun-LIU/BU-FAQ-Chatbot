@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# VSCode
+.vscode/
+
+# Other common directories and files
+node_modules/
+.idea/

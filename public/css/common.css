@@ -1,0 +1,51 @@
+/* 通用样式 (General styles) */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f2f5; /* 背景颜色 (Background color) */
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    color: #2f2d2d;
+    display: flex;
+    justify-content: space-between; /* 左右对齐 (Justify content to space between) */
+    align-items: center; /* 垂直居中 (Vertical center alignment) */
+    padding: 10px 20px; /* 添加一些内边距 (Add some padding) */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影效果 (Shadow effect) */
+    z-index: 1000; /* 保证导航栏在最上层 (Ensure navbar is on top) */
+    box-sizing: border-box; /* 包含内边距和边框大小 (Include padding and border in size) */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center; /* 垂直居中 (Vertical center alignment) */
+}
+
+.logo {
+    max-width: 80px;
+    height: auto;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center; /* 垂直居中 (Vertical center alignment) */
+    margin-left: auto; /* 将按钮靠右对齐 (Align buttons to the right) */
+    flex-wrap: wrap; /* 如果空间不足，允许换行 (Allow wrapping if space is insufficient) */
+}
+
+.nav-links a {
+    margin: 0 10px; /* 调整间距以适应屏幕大小 (Adjust spacing to fit screen size) */
+    text-decoration: none;
+    color: rgb(78, 75, 75);
+    font-weight: bold; /* 加粗字体 (Bold font) */
+}
+
+.nav-links a:hover {
+    text-decoration: underline; /* 悬停时下划线 (Underline on hover) */
+}

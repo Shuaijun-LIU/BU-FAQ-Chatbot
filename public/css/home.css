@@ -1,0 +1,212 @@
+/* home.css 仅包含主页特定的样式 (home.css contains styles specific to the homepage) */
+
+/* 通用部分 (General section) */
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  margin: 0; /* 移除上下边距 (Remove top and bottom margin) */
+  width: 100%;
+  box-sizing: border-box; /* 包括padding在内 (Include padding in width and height) */
+}
+
+/* 浅灰色部分 (Light gray section) */
+.section-light-gray {
+  background-color: var(--section-bg-color, #f0f0f0);
+  height: calc(100vh / 3); /* 高度占屏幕的1/3 (Height occupies 1/3 of the screen) */
+  padding: var(--section-padding, 20px 20px);
+}
+
+/* 白色部分 (White section) */
+.section-white {
+  background-color: var(--section-bg-color, #ffffff);
+  height: calc(100vh / 4); /* 高度占屏幕的1/4 (Height occupies 1/4 of the screen) */
+  /* padding: var(--section-padding, 20px 20px); */
+}
+
+/* 深灰色底边栏 (Dark gray footer section) */
+.section-dark-gray {
+  background-color: var(--section-bg-color, #272932);
+  height: 4vh; /* 高度更扁一些 (Shorter height) */
+  color: var(--section-text-color, white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--section-font-size, 0.8em);
+}
+
+/* 第一个文本部分 (First text section) */
+.first-section-text {
+  color: var(--text-color, #000);
+  font-size: var(--text-font-size, 2.5rem);
+  margin-bottom: var(--text-margin-bottom, 10px);
+  font-family: var(--text-font-family, 'Playfair Display', serif);
+  text-align: var(--text-align, center);
+  justify-content: var(--text-justify-content, center);
+  max-width: var(--text-max-width, 100%);
+  min-width: var(--text-min-width, 300px);
+}
+
+/* 第二个文本部分 (Second text section) */
+.second-section-text {
+  color: var(--text-color, #555);
+  font-size: var(--text-font-size, 1.2rem);
+  margin-bottom: var(--text-margin-bottom, 20px);
+  font-family: var(--text-font-family, Arial, sans-serif);
+  text-align: var(--text-align, center);
+  justify-content: var(--text-justify-content, center);
+  max-width: var(--text-max-width, 100%);
+  min-width: var(--text-min-width, 300px);
+}
+
+/* 限制宽度的段落部分 (Paragraph with limited width) */
+.limited-width {
+  max-width: var(--text-max-width, 600px);
+  min-width: var(--text-min-width, 300px);
+  margin: 0 auto; /* 居中对齐 (Center alignment) */
+}
+
+/* 第三个文本部分 (Third text section) */
+.third-section-text {
+  color: var(--text-color, #3e5c7c);
+  font-size: var(--text-font-size, 3rem);
+  margin-bottom: var(--text-margin-bottom, 20px);
+  font-family: var(--text-font-family, 'Times New Roman', Times, serif); /* 改为新罗马字体 (Changed to Times New Roman) */
+  text-align: var(--text-align, center);
+  justify-content: var(--text-justify-content, center);
+  max-width: var(--text-max-width, 100%);
+  min-width: var(--text-min-width, 300px);
+}
+
+/* 按钮样式 (Button styles) */
+.program-select-button, #start-button {
+  margin-top: var(--button-margin-top, 20px);
+  padding: var(--button-padding, 10px 20px);
+  font-size: var(--button-font-size, 1rem);
+  cursor: pointer;
+  background-color: var(--button-bg-color, #000);
+  color: var(--button-text-color, #fff);
+  border: none;
+  border-radius: var(--button-border-radius, 5px);
+  box-shadow: var(--button-box-shadow, 0px 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* 下拉菜单样式 (Dropdown menu styles) */
+.program-options {
+  display: flex;
+  border-radius: 5px;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--dropdown-margin-top, 550px);
+  border: var(--dropdown-border, 1px solid #0c0b0b);
+  padding: var(--dropdown-padding, 10px);
+  background-color: var(--dropdown-bg-color, #b8b6b6);
+  width: var(--dropdown-width, 180px);
+  position: absolute;
+  z-index: 1000;
+  box-shadow: var(--dropdown-box-shadow, 0px 4px 6px rgba(0, 0, 0, 0.1));
+  overflow-y: auto; /* 允许垂直滚动 (Allow vertical scrolling) */
+}
+
+/* 下拉菜单选项 (Dropdown menu options) */
+.program-options div {
+  margin: var(--dropdown-option-margin, 5px 0);
+  cursor: pointer;
+  padding: var(--dropdown-option-padding, 5px);
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* 悬停效果 (Hover effect) */
+.program-options div:hover {
+  background-color: var(--dropdown-hover-bg-color, #f0f0f0);
+}
+
+/* 隐藏元素 (Hidden elements) */
+.hidden {
+  display: none;
+}
+
+/* 响应式设计 (Responsive design) */
+/* 小屏幕优化 (Small screen optimization) */
+@media (max-width: 768px) {
+  /* 调整 section 高度 (Adjust section height) */
+  .section-light-gray, .section-white {
+    height: auto;
+    padding: 20px;
+  }
+
+  /* 调整文本大小 (Adjust text size) */
+  .first-section-text {
+    font-size: 2rem;
+  }
+
+  .second-section-text {
+    font-size: 1rem;
+  }
+
+  .third-section-text {
+    font-size: 0.9rem;
+  }
+
+  /* 调整按钮样式 (Adjust button styles) */
+  .program-select-button, #start-button {
+    font-size: 0.9rem;
+    padding: 9px 18px;
+  }
+
+  /* 调整下拉菜单样式 (Adjust dropdown menu styles) */
+  .program-options {
+    width: 160px;
+    padding: 9px;
+  }
+
+  .program-options div {
+    padding: 4px;
+  }
+}
+
+/* 大屏幕优化 (Large screen optimization) */
+@media (min-width: 1024px) {
+  /* 调整 section 高度 (Adjust section height) */
+  .section-light-gray {
+    height: 55vh;
+  }
+
+  .section-white {
+    height: 41vh;
+  }
+
+  /* 调整文本大小 (Adjust text size) */
+  .first-section-text {
+    font-size: 3rem;
+  }
+
+  .second-section-text {
+    font-size: 1.4rem;
+  }
+
+  .third-section-text {
+    font-size: 1.1rem;
+  }
+
+  /* 调整按钮样式 (Adjust button styles) */
+  .program-select-button, #start-button {
+    font-size: 1.1rem;
+    padding: 11px 22px;
+  }
+
+  /* 调整下拉菜单样式 (Adjust dropdown menu styles) */
+  .program-options {
+    width: 200px;
+    padding: 11px;
+  }
+
+  .program-options div {
+    padding: 6px;
+  }
+}
