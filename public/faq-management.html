@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Management</title>
+    <link rel="stylesheet" href="css/faq-management.css">
+    <script src="js/common.js" defer></script>
+    <script src="js/faq-management.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/bu-logo.gif" alt="Boston University Logo">
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="chat.html">Chat</a>
+                <a href="admin.html">BU-admin</a>
+                <a href="faq-management.html">FAQ-management</a>
+                <a href="upload.html">Upload</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <h1>Questions and Answers Management</h1>
+        <div class="search-container">
+            <input type="text" placeholder="Search Questions">
+            <button>Search</button>
+            <button>Download</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 40%;">Question</th>
+                    <th style="width: 45%;">Answers</th>
+                    <th style="width: 15%;">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be dynamically populated by faq-management.js -->
+            </tbody>
+        </table>
+        <button class="add-faq-btn">+ Add New FAQ</button>
+        <div class="add-faq-window hidden" id="add-faq-window">
+            <h2>Add New FAQ</h2>
+            <input type="text" id="new-faq-question" placeholder="Enter the new question">
+            <input type="text" id="new-faq-answer" placeholder="Enter the answer">
+            <input type="text" id="new-faq-module" placeholder="Enter the module (category)">
+            <button id="confirm-add-faq">Add FAQ</button>
+            <button id="cancel-add-faq">Cancel</button>
+            <p id="add-faq-success" class="hidden">FAQ added successfully!</p>
+        </div>
+    </main>
+    <footer class="section-dark-gray">
+        <p>© 2024 Trustees of Boston University</p>
+    </footer>
+</body>
+</html>

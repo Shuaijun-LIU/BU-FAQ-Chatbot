@@ -8,7 +8,11 @@ const UserSchema = new mongoose.Schema({
         unique: true,
         trim: true
     },
-    password: {
+    first_name: {
+        type: String,
+        required: true
+    },
+    last_name: {
         type: String,
         required: true
     },
@@ -17,6 +21,28 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true,
         trim: true
+    },
+    nickname: {
+        type: String
+    },
+    website: {
+        type: String
+    },
+    telephone: {
+        type: String
+    },
+    mobile: {
+        type: String
+    },
+    bio: {
+        type: String
+    },
+    profile_image: {
+        type: String
+    },
+    password: {
+        type: String,
+        required: true
     },
     created_at: {
         type: Date,
@@ -28,7 +54,7 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
-// 在保存用户数据之前对密码进行加密
+// Encrypt password before saving user data
 UserSchema.pre('save', function(next) {
     const user = this;
     if (!user.isModified('password')) {
@@ -44,7 +70,7 @@ UserSchema.pre('save', function(next) {
     });
 });
 
-// 比较输入密码和数据库中的哈希密码
+// Compare input password with hashed password in database
 UserSchema.methods.comparePassword = function(candidatePassword) {
     return bcrypt.compare(candidatePassword, this.password);
 };

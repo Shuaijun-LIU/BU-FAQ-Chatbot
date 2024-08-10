@@ -1,3 +1,29 @@
+/* Body and HTML styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Header styling */
+header {
+  background-color: white;
+  padding: 10px 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo img {
+  height: 35px;
+}
+
+/* Content styling */
 .content {
   margin: 100px auto;
   padding: 25px;
@@ -6,7 +32,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-align: center;
   width: 90%;
-  max-width: 500px;
+  max-width: 600px; /* Increased max-width for two columns */
 }
 
 h1 {
@@ -15,23 +41,48 @@ h1 {
 
 form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping of elements */
+  justify-content: space-between;
 }
 
 label {
   margin: 10px 0 5px;
+  width: 100%;
+  text-align: left;
 }
 
-input {
+.input-container {
+  width: 48%; /* Adjusted width for two columns */
   margin-bottom: 20px;
+}
+
+input, textarea {
   padding: 10px;
   width: 100%;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-sizing: border-box;
+  font-size: 16px;
 }
 
+/* Specific styling for textarea */
+textarea {
+  resize: vertical; /* Allow vertical resizing of textarea */
+  min-height: 80px;
+  width: 100%; /* Ensure textarea takes full width in its container */
+}
+
+/* Styling for file input */
+input[type="file"] {
+  padding: 3px;
+}
+
+/* Full-width elements */
+.full-width {
+  width: 100%;
+}
+
+/* Button styling */
 button {
   padding: 10px 20px;
   background-color: #8B0000; 
@@ -47,6 +98,22 @@ button:hover {
   background-color: #5a0000;
 }
 
+/* Error message styling */
 #error-message {
   margin-top: 10px;
+}
+
+/* Footer styling */
+footer.section-dark-gray {
+  background-color: #272932;
+  height: 4vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }

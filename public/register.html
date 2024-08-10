@@ -4,38 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Page</title>
-    <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
-    <nav>
-        <div class="logo-container">
-            <img src="images/bu-logo.gif" alt="Logo" class="logo">
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/bu-logo.gif" alt="Logo">
+            </div>
         </div>
-        <div class="nav-links">
-            <a href="/">Home</a>
-            <a href="/login">Login</a>
-            <a href="/register">Register</a>
-            <a href="/file-qa">File QA</a>
-            <a href="/gpt-qa">GPT QA</a>
-            <a href="/download">Download</a>
-        </div>
-    </nav>
+    </header>
     <div class="content">
         <h1>Register</h1>
-        <form id="register-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-            <label for="confirm-password">Confirm Password:</label>
-            <input type="password" id="confirm-password" name="confirm-password" required>
-            <button type="submit">Register</button>
+        <form id="register-form" enctype="multipart/form-data">
+            <div class="input-container">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="input-container">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" required>
+            </div>
+
+            <div class="input-container">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" required>
+            </div>
+
+            <div class="input-container">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="input-container">
+                <label for="nickname">Nickname (Optional):</label>
+                <input type="text" id="nickname" name="nickname">
+            </div>
+
+            <div class="input-container">
+                <label for="website">Website (Optional):</label>
+                <input type="url" id="website" name="website">
+            </div>
+
+            <div class="input-container">
+                <label for="telephone">Telephone (Optional):</label>
+                <input type="tel" id="telephone" name="telephone">
+            </div>
+
+            <div class="input-container">
+                <label for="mobile">Mobile (Optional):</label>
+                <input type="tel" id="mobile" name="mobile">
+            </div>
+
+            <div class="input-container full-width">
+                <label for="bio">Biographical Info (Optional):</label>
+                <textarea id="bio" name="bio"></textarea>
+            </div>
+
+            <div class="input-container full-width">
+                <label for="profile_image">Profile Image (Optional):</label>
+                <input type="file" id="profile_image" name="profile_image" accept="image/*">
+            </div>
+
+            <div class="input-container">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+
+            <div class="input-container">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+
+            <button type="submit" class="full-width">Register</button>
             <p id="error-message" style="color: red;"></p>
         </form>
     </div>
-    <script src="js/app.js"></script>
+    <footer class="section-dark-gray">
+        &copy; 2024 Boston University
+    </footer>
+    <script src="js/register.js"></script>
 </body>
 </html>

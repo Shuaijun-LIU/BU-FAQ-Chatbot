@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/admin.js" defer></script> <!-- Ensure correct JS file is linked -->
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="images/bu-logo.gif" alt="Boston University Logo">
+            </div>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="chat.html">Chat</a>
+                <a href="admin.html">BU-admin</a>
+                <a href="faq-management.html">FAQ-management</a>
+                <a href="upload.html">Upload</a>
+            </nav>
+        </div>
+    </header>
+    <div class="main-container">
+        <aside>
+            <div class="profile-section">
+                <img src="images/profile.png" alt="Profile Image" class="profile-image">
+                <span>Admin</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="faq-management.html">FAQ Management</a></li>
+                <li><a href="register.html">Add New Admin</a></li> <!-- Assuming this link leads to a registration page -->
+                <li><a href="/">Log Out</a></li>
+            </ul>
+        </aside>
+        <main>
+            <h1>Dashboards / General Info</h1>
+            <form class="info-form">
+                <div class="form-group">
+                    <label for="username">User Name</label>
+                    <input type="text" id="username">
+                </div>
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" id="firstname">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" id="lastname">
+                </div>
+                <div class="form-group">
+                    <label for="nickname">Nickname (Display Name)</label>
+                    <input type="text" id="nickname">
+                </div>
+                <div class="form-group">
+                    <label for="website">Website</label>
+                    <input type="url" id="website">
+                </div>
+                <div class="form-group">
+                    <label for="telephone">Telephone</label>
+                    <input type="tel" id="telephone">
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile</label>
+                    <input type="tel" id="mobile">
+                </div>
+                <div class="form-group biographical-info">
+                    <label for="bioinfo">Biographical Info</label>
+                    <textarea id="bioinfo" rows="4"></textarea>
+                </div>
+            </form>
+        </main>
+    </div>
+    <footer class="section section-dark-gray">
+        <p>© 2024 Trustees of Boston University</p>
+    </footer>
+</body>
+</html>

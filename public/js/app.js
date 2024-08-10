@@ -1,77 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("DOMContentLoaded event fired");
+    const toggleSidebarButton = document.getElementById('toggle-sidebar');
+    const sidebar = document.getElementById('sidebar');
 
-    const loginForm = document.getElementById('login-form');
-    const registerForm = document.getElementById('register-form');
-
-    if (loginForm) {
-        loginForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            const response = await fetch('/auth/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ username, password })
-            });
-
-            const data = await response.json();
-            if (response.ok) {
-                alert('Login successful');
-                localStorage.setItem('token', data.token);
-                window.location.href = '/';
-            } else {
-                alert('Login failed: ' + data.message);
-            }
+    if (toggleSidebarButton && sidebar) {
+        toggleSidebarButton.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
         });
     }
 
-    if (registerForm) {
-        registerForm.addEventListener('submit', async (event) => {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            const confirmPassword = document.getElementById('confirm-password').value;
-
-            if (password !== confirmPassword) {
-                alert('Passwords do not match');
-                return;
-            }
-
-            const response = await fetch('/auth/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ username, email, password })
-            });
-
-            const data = await response.json();
-            if (response.ok) {
-                alert('Registration successful');
-                window.location.href = '/login';
-            } else {
-                alert('Registration failed: ' + data.message);
-            }
-        });
-    }
-
-    const messagesDiv = document.getElementById('messages');
+    const messagesDiv = document.getElementById('chatbox');
     const questionsList = document.getElementById('questions-list');
-    
+
     // Display initial message
     const initialMessage = document.createElement('div');
-    initialMessage.className = 'system';
-    initialMessage.innerHTML = `<p><strong>System:</strong> You can start asking questions now.</p>`;
+    initialMessage.className = 'message bot';
+    initialMessage.innerHTML = `
+        <div class="avatar">
+            <img src="images/bot-icon.png" alt="Bot">
+        </div>
+        <div class="text">
+            <strong>System:</strong> Hi, how can I help? Choose from a topic below or type a specific question.
+            (Programs, Admissions, Prerequisites, Registration, Program Requirements, Program Completion, International Students, Other)
+        </div>
+    `;
     if (messagesDiv) {
         messagesDiv.appendChild(initialMessage);
-        // Add a line break after the initial message
-        const lineBreak = document.createElement('br');
-        messagesDiv.appendChild(lineBreak);
     }
 
     // Add event listener for question submission
@@ -86,8 +39,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Display user question
             const userMessage = document.createElement('div');
-            userMessage.className = 'user';
-            userMessage.innerHTML = `<p><strong>You:</strong> ${userQuestion}</p>`;
+            userMessage.className = 'message user';
+            userMessage.innerHTML = `
+                <div class="text user-text"><strong>You:</strong> ${userQuestion}</div>
+                <div class="avatar user-avatar">
+                    <img src="images/user-icon.png" alt="User">
+                </div>
+            `;
             messagesDiv.appendChild(userMessage);
 
             console.log('Submitting question:', userQuestion); // Debug log
@@ -104,26 +62,34 @@ document.addEventListener('DOMContentLoaded', () => {
             if (response.ok) {
                 console.log('Received answer:', data.answer); // Debug log
                 const answerMessage = document.createElement('div');
-                answerMessage.className = 'answer';
-                answerMessage.innerHTML = `<p><strong>Answer:</strong> ${data.answer}</p>`;
-                if (data.urls && data.urls.length > 0) {
-                    const urlsDiv = document.createElement('div');
-                    urlsDiv.innerHTML = `<p>For more detailed information, you can visit the following websites:</p>`;
-                    data.urls.forEach(urlObj => {
-                        const urlLink = document.createElement('a');
-                        urlLink.href = urlObj.url;
-                        urlLink.textContent = urlObj.text;
-                        urlsDiv.appendChild(urlLink);
-                        urlsDiv.appendChild(document.createElement('br'));
-                    });
-                    answerMessage.appendChild(urlsDiv);
-                }
+                answerMessage.className = 'message bot';
+                answerMessage.innerHTML = `
+                    <div class="avatar">
+                        <img src="images/bot-icon.png" alt="Bot">
+                    </div>
+                    <div class="text">
+                        <strong>Answer:</strong> ${data.answer}
+                        ${data.urls && data.urls.length > 0 ? `
+                            <div>
+                                <p>For more detailed information, you can visit the following websites:</p>
+                                ${data.urls.map(urlObj => `<a href="${urlObj.url}" target="_blank">${urlObj.text}</a><br>`).join('')}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
                 messagesDiv.appendChild(answerMessage);
             } else {
                 console.error('Error response:', data.error); // Debug log
                 const errorMessage = document.createElement('div');
-                errorMessage.className = 'system';
-                errorMessage.innerHTML = `<p><strong>Error:</strong> ${data.error}</p>`;
+                errorMessage.className = 'message bot';
+                errorMessage.innerHTML = `
+                    <div class="avatar">
+                        <img src="images/bot-icon.png" alt="Bot">
+                    </div>
+                    <div class="text">
+                        <strong>Error:</strong> ${data.error}
+                    </div>
+                `;
                 messagesDiv.appendChild(errorMessage);
             }
 
@@ -179,17 +145,105 @@ document.addEventListener('DOMContentLoaded', () => {
 
         startButton.addEventListener('click', () => {
             if (selectedProgram) {
-                console.log("Navigating to /file-qa with program:", selectedProgram);
-                window.location.href = '/file-qa';
+                console.log("Navigating to /chat with program:", selectedProgram);
+                window.location.href = '/chat';
             }
         });
     } else {
         console.error("Program selection elements not found");
     }
-});
 
-function yetAnotherFunction() {
-    // |--202407-MacOS--|
-    // |--Another:Shuaijun Liu--|
-    console.log("Another:Shuaijun Liu");
-}
+    // Role selection and admin login functionality
+    const userButton = document.getElementById('user-button');
+    const adminButton = document.getElementById('admin-button');
+    const roleSelectionModal = document.getElementById('role-selection-modal');
+    const loginModal = document.getElementById('login-modal');
+    const content = document.getElementById('content');
+    const navLinks = document.querySelector('.header-container nav');
+
+    if (userButton) {
+        userButton.addEventListener('click', () => {
+            localStorage.setItem('role', 'user');
+            roleSelectionModal.classList.remove('active');
+            document.body.classList.remove('modal-open');
+            content.classList.remove('hidden');
+            navLinks.innerHTML = `
+                <a href="index.html">Home</a>
+                <a href="chat.html">Chat</a>
+            `;
+        });
+    }
+
+    if (adminButton) {
+        adminButton.addEventListener('click', () => {
+            roleSelectionModal.classList.remove('active');
+            loginModal.classList.add('active');
+        });
+    }
+
+    const loginButton = document.getElementById('login-button');
+    if (loginButton) {
+        loginButton.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    const loginTime = new Date().toISOString();
+                    localStorage.setItem('role', 'admin');
+                    localStorage.setItem('username', username);
+                    localStorage.setItem('loginTime', loginTime);
+
+                    // Store the token in localStorage
+                    localStorage.setItem('token', data.token);
+
+                    loginModal.classList.remove('active');
+                    document.body.classList.remove('modal-open');
+                    content.classList.remove('hidden');
+                    navLinks.innerHTML = `
+                        <a href="index.html">Home</a>
+                        <a href="chat.html">Chat</a>
+                        <a href="admin.html">BU-admin</a>
+                        <a href="faq-management.html">FAQ-management</a>
+                        <a href="upload.html">Upload</a>
+                    `;
+                } else {
+                    document.getElementById('error-message').textContent = data.message;
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                document.getElementById('error-message').textContent = 'An unexpected error occurred during login.';
+            }
+        });
+    }
+
+    const registerButton = document.getElementById('register-button');
+    if (registerButton) {
+        registerButton.addEventListener('click', () => {
+            window.location.href = 'register.html';
+        });
+    }
+
+    // Open role selection modal on page load
+    roleSelectionModal.classList.add('active');
+    document.body.classList.add('modal-open');
+
+    // Display login info in console
+    const role = localStorage.getItem('role');
+    const username = localStorage.getItem('username');
+    const loginTime = localStorage.getItem('loginTime');
+
+    if (role === 'admin' && username && loginTime) {
+        console.log(`Logged in as ${username} at ${new Date(loginTime).toLocaleString()}`);
+    }
+});

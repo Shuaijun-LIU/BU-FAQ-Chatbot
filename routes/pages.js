@@ -6,25 +6,26 @@ router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-router.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/login.html'));
+router.get('/chat', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/chat.html'));
+});
+
+router.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/admin.html'));
+});
+
+router.get('/faq-management', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/faq-management'));
+});
+
+router.get('/upload', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/upload.html'));
 });
 
 router.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/register.html'));
 });
 
-router.get('/file-qa', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/file-qa.html'));
-});
-
-router.get('/gpt-qa', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/gpt-qa.html'));
-});
-
-router.get('/download', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/download.html'));
-});
 
 module.exports = router;
 
