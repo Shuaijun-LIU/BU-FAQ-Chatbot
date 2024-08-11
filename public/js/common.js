@@ -13,16 +13,18 @@ function updateNavbarAndLoginInfo() {
     if (role === 'admin' && username && loginTime) {
         navLinks.innerHTML = `
             <a href="index.html">Home</a>
-            <a href="chat.html">Chat</a>
-            <a href="admin.html">BU-admin</a>
-            <a href="faq-management.html">FAQ-management</a>
+            <a href="chat.html">NLP Chat</a>
+            <a href="gpt-chat.html">GPT Chat</a>
+            <a href="admin.html">BU Admin</a>
+            <a href="faq-management.html">FAQ Management</a>
             <a href="upload.html">Upload</a>
         `;
         console.log(`Logged in as ${username} at ${new Date(loginTime).toLocaleString()}`);
     } else if (role === 'user') {
         navLinks.innerHTML = `
             <a href="index.html">Home</a>
-            <a href="chat.html">Chat</a>
+            <a href="chat.html">NLP Chat</a>
+            <a href="gpt-chat.html">GPT Chat</a>
         `;
     }
 }

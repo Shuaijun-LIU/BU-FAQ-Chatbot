@@ -10,9 +10,8 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// 使用环境变量中的 MongoDB 连接字符串
 // Use the MongoDB connection string from environment variables
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(process.env.MONGO_URI);
 
 const authRoutes = require('./routes/auth');
 const questionRoutes = require('./routes/questions');
@@ -21,7 +20,14 @@ app.use('/auth', authRoutes);
 app.use('/questions', questionRoutes);
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// 页面路由处理
+// Import and use openai routes with error handling
+try {
+    const gptChatRoutes = require('./routes/openai');
+    app.use('/openai', gptChatRoutes);
+} catch (error) {
+    console.error('Error loading OpenAI routes:', error);
+}
+
 // Page route handling
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
@@ -29,6 +35,10 @@ app.get('/', (req, res) => {
 
 app.get('/chat', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'chat.html'));
+});
+
+app.get('/gpt-chat', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'gpt-chat.html'));
 });
 
 app.get('/admin', (req, res) => {

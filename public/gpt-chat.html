@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New FAQ</title>
-    <link rel="stylesheet" href="css/upload.css">
-    <script src="js/upload.js" defer></script>
+    <title>Chat Interface</title>
+    <link rel="stylesheet" href="css/chat.css">
+    <script src="js/common.js" defer></script>
 </head>
 <body>
     <header>
@@ -24,18 +24,18 @@
         </div>
     </header>
     <main>
-        <h1>Questions and Answers Management</h1>
-        <h2>Add New FAQ</h2>
-        <div class="upload-container">
-            <div class="drop-area" id="drop-area">
-                <img src="images/upload-file.png" alt="Upload Icon">
-                <p>Drop your files here or click the button below to upload</p>
-            </div>
-            <button class="upload-btn">Upload</button>
+        <h1>Welcome to BU FAQ-Chatbot! (GPT-4o Based)</h1>
+        <div class="chat-container" id="chatbox">
+        </div>
+        <div class="input-container">
+            <input type="text" id="user-question" placeholder="Send a message">
+            <button class="send-btn" id="submit-question"><img src="images/send-icon.png" alt="Send"></button>
         </div>
     </main>
     <footer class="section-dark-gray">
         <p>© 2024 Trustees of Boston University</p>
     </footer>
+
+    <script src="js/gpt-chat.js"></script>
 </body>
 </html>

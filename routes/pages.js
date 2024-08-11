@@ -10,6 +10,10 @@ router.get('/chat', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/chat.html'));
 });
 
+router.get('/gpt-chat', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/gpt-chat.html'));
+});
+
 router.get('/admin', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/admin.html'));
 });

@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     uploadButton.addEventListener('click', () => {
         const fileInput = document.createElement('input');
         fileInput.type = 'file';
-        fileInput.accept = '.json';
+        fileInput.accept = '.json, .csv';
         fileInput.click();
 
         fileInput.onchange = () => {

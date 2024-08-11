@@ -1,11 +1,23 @@
-# FAQ Project (CS673 Team 2)
+# BU-FAQ-Chatbot Project (CS673 Team 2)
 
-This project is designed to help BU MET professors and students ask and get answers to their questions efficiently. The system supports both **NLP-based** and **GPT-based** question answering. Users can register, log in, and start asking questions right away.
+This project is designed to help BU MET students ask and get answers to their questions efficiently. The system supports both **NLP-based** and **GPT-based** question answering. Users can register, log in, and start asking questions right away.
+
+### 👍 Advisor
+| **Prof. Alex Elentukh** |
+|-------------------------|
+
+### ✍️ Author
+| Role                                 | Name                   |
+|--------------------------------------|------------------------|
+| Project Manager, Project Structure Design | Benyamin Tafreshian     |
+| Data Crawling, Front-end and Back-end | Shuaijun Liu           |
+| Requirements, Support Files and Test | Kun Hu                 |
+| UX/UI Design                         | Anna Hu                |
 
 ## 🎨 Project Structure
 
 ```
-project_root/
+BU-FAQ-Chatbot/
 │
 ├── controllers/
 │   └── authController.js
@@ -27,7 +39,8 @@ project_root/
 │   │   ├── faq-management.css
 │   │   ├── home.css
 │   │   ├── register.css
-│   │   └── upload.css
+│   │   ├── upload.css
+│   │   └── gpt-chat.css
 │   │
 │   ├── images/
 │   │
@@ -37,19 +50,22 @@ project_root/
 │   │   ├── common.js
 │   │   ├── faq-management.js
 │   │   ├── register.js
-│   │   └── upload.js
+│   │   ├── upload.js
+│   │   └── gpt-chat.js
 │   │
 │   ├── admin.html
 │   ├── chat.html
 │   ├── faq-management.html
 │   ├── index.html
 │   ├── register.html
-│   └── upload.html
+│   ├── upload.html
+│   └── gpt-chat.html
 │
 ├── routes/
 │   ├── auth.js
 │   ├── pages.js
-│   └── questions.js
+│   ├── questions.js
+│   └── openai.js
 │
 ├── uploads/
 │   └── 1723309227575.png
@@ -80,6 +96,7 @@ project_root/
     - **`home.css`**: Styles specific to the home page.
     - **`register.css`**: Styles specific to the registration page.
     - **`upload.css`**: Styles specific to the upload page.
+    - **`gpt-chat.css`**: Styles specific to the GPT chat page.
   - **`images/`**: Directory for image files.
   - **`js/`**: Directory for JavaScript files.
     - **`admin.js`**: JavaScript logic for the admin dashboard.
@@ -88,16 +105,19 @@ project_root/
     - **`faq-management.js`**: JavaScript logic for FAQ management.
     - **`register.js`**: JavaScript logic for user registration.
     - **`upload.js`**: JavaScript logic for the file upload page.
+    - **`gpt-chat.js`**: JavaScript logic for the GPT chat page.
   - **`admin.html`**: HTML file for the admin dashboard.
   - **`chat.html`**: HTML file for the chat page.
   - **`faq-management.html`**: HTML file for managing FAQs.
   - **`index.html`**: HTML file for the home page.
   - **`register.html`**: HTML file for the registration page.
   - **`upload.html`**: HTML file for the upload page.
+  - **`gpt-chat.html`**: HTML file for the GPT chat page.
 - **`routes/`**: Contains route definition files for the Express application.
   - **`auth.js`**: Defines routes for user authentication, including registration and login.
   - **`pages.js`**: Defines routes for serving HTML pages.
   - **`questions.js`**: Defines routes for handling Q&A functionality.
+  - **`openai.js`**: Defines routes for handling GPT chat functionality.
 - **`controllers/`**: Contains controller files that handle the logic for various routes.
   - **`authController.js`**: Handles logic related to user authentication.
 - **`models/`**: Contains data models for the application.
@@ -114,11 +134,12 @@ project_root/
 ## 🌐 Project Pages
 
 1. **Home Page (`/`)**: The landing page with a brief introduction about the project.
-2. **Chat Page (`/chat`)**: Page where users can ask and get answers to their questions.
-3. **FAQ Management Page (`/faq-management`)**: Page for admins to manage frequently asked questions and their answers.
-4. **Admin Dashboard (`/admin`)**: Dashboard for admins to manage profiles and site settings.
-5. **Registration Page (`/register`)**: Page where new users can register.
-6. **Upload Page (`/upload`)**: Page for uploading files related to the project.
+2. **NLP-Chat Page (`/chat`)**: Page where users can ask and get answers to their questions Based on NLP.
+3. **GPT-Chat Page (`/gpt-chat`)**: Page where users can ask and get answers to their questions Based on GPT-4o.
+4. **FAQ Management Page (`/faq-management`)**: Page for admins to manage frequently asked questions and their answers.
+5. **Admin Dashboard (`/admin`)**: Dashboard for admins to manage profiles and site settings.
+6. **Registration Page (`/register`)**: Page where new users can register.
+7. **Upload Page (`/upload`)**: Page for uploading files related to the project.
 
 
 ## 🚀 Getting Started

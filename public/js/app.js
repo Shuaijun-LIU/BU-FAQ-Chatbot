@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 body: JSON.stringify({ question: userQuestion })
             });
-
+            
             const data = await response.json();
             if (response.ok) {
                 console.log('Received answer:', data.answer); // Debug log
@@ -69,12 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="text">
                         <strong>Answer:</strong> ${data.answer}
-                        ${data.urls && data.urls.length > 0 ? `
-                            <div>
-                                <p>For more detailed information, you can visit the following websites:</p>
-                                ${data.urls.map(urlObj => `<a href="${urlObj.url}" target="_blank">${urlObj.text}</a><br>`).join('')}
-                            </div>
-                        ` : ''}
                     </div>
                 `;
                 messagesDiv.appendChild(answerMessage);
@@ -169,7 +163,8 @@ document.addEventListener('DOMContentLoaded', () => {
             content.classList.remove('hidden');
             navLinks.innerHTML = `
                 <a href="index.html">Home</a>
-                <a href="chat.html">Chat</a>
+                <a href="chat.html">NLP Chat</a>
+                <a href="gpt-chat.html">GPT Chat</a>
             `;
         });
     }
@@ -212,9 +207,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     content.classList.remove('hidden');
                     navLinks.innerHTML = `
                         <a href="index.html">Home</a>
-                        <a href="chat.html">Chat</a>
-                        <a href="admin.html">BU-admin</a>
-                        <a href="faq-management.html">FAQ-management</a>
+                        <a href="chat.html">NLP Chat</a>
+                        <a href="gpt-chat.html">GPT Chat</a>
+                        <a href="admin.html">BU Admin</a>
+                        <a href="faq-management.html">FAQ Management</a>
                         <a href="upload.html">Upload</a>
                     `;
                 } else {
