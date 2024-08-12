@@ -23,7 +23,7 @@ BU-FAQ-Chatbot/
 │   └── authController.js
 │
 ├── data/
-│   ├── BU_MET_FAQs_big.json
+│   ├── BU_MET_FAQs.csv
 │   └── BU_MET_FAQs.json
 │
 ├── models/
