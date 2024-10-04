@@ -1,18 +1,10 @@
-# BU-FAQ-Chatbot Project (CS673 Team 2)
+# BU-FAQ-Chatbot
 
-This project is designed to help BU MET students ask and get answers to their questions efficiently. The system supports both **NLP-based** and **GPT-based** question answering. Users can register, log in, and start asking questions right away.
+This project is designed to help BU students ask and get answers to their questions efficiently. The system supports both **NLP-based** and **GPT-based** question answering. Users can register, log in, and start asking questions right away.
 
 ### 👍 Advisor
 | **Prof. Alex Elentukh** |
 |-------------------------|
-
-### ✍️ Author
-| Role                                 | Name                   |
-|--------------------------------------|------------------------|
-| Project Manager, Project Structure Design | Benyamin Tafreshian     |
-| Data Crawling, Front-end and Back-end | Shuaijun Liu           |
-| Requirements, Support Files and Test | Kun Hu                 |
-| UX/UI Design                         | Anna Hu                |
 
 ## 🎨 Project Structure
 
@@ -23,8 +15,8 @@ BU-FAQ-Chatbot/
 │   └── authController.js
 │
 ├── data/
-│   ├── BU_MET_FAQs.csv
-│   └── BU_MET_FAQs.json
+│   ├── BU_FAQs.csv
+│   └── BU_FAQs.json
 │
 ├── models/
 │   ├── Question.js
@@ -217,5 +209,5 @@ This project is licensed under the **MIT License**. See the `LICENSE` file for m
 
 ## 🙏 Acknowledgements
 
-- **Boston University MET**
+- **Boston University **
 - **CS673 Team 2**
