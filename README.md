@@ -209,5 +209,4 @@ This project is licensed under the **MIT License**. See the `LICENSE` file for m
 
 ## 🙏 Acknowledgements
 
-- **Boston University **
-- **CS673 Team 2**
+- **Boston University**
